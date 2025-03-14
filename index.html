@@ -1,0 +1,82 @@
+<!-- ==================================================
+Project description: Pay Calculator
+Author: Lone Mortensen
+Description: 
+Built with: 
+
+===== *** =====
+
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="css/styles.css"/>
+    <!--Google Fonts - Bungee Inline-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+    <!--Google Fonts - Noto Sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--Font Awesome icons - Version 6-->
+    <script src="https://kit.fontawesome.com/32a77f8752.js" crossorigin="anonymous"></script> 
+</head>
+  <body>
+    <div class="content-wrapper">
+    <header>
+      <div class="header-wrapper">
+        <h1 class="header-styling">
+          Calculate your pay
+        </h1>
+      </div>
+    </header>
+
+    <main>
+      <!--INPUT-->
+      <section id="input">
+        <div class="input-header">
+          <h3>
+            To calculate your pay, enter the number of hours you worked.
+          </h3>
+        </div>
+        <!--Error message-->
+        <div id="error" >
+          <p class="error-message hide-error"></p>
+      </div>
+        <!--Form-->
+        <form id="workhours-form">
+          <div class="input-wrapper"> 
+            <label for="number-input">Enter a number:</label>
+            <!--Type attribute set to 'text' (vs 'number') to allow for custom JS input validation:-->
+            <input type="text" id="number-input" name="number-input" value=""> 
+          </div>
+          <div class="calculate">
+            <!--Type attribute set to 'button' (vs 'submit') to allow for custom JS behavior:-->
+            <button type="button" class="calculate-button calculate-button-styling">Calculate</button> 
+          </div> 
+        </form>
+      </section>
+
+      <!--RESULTS-->
+      <section id="results">
+        <div class="result-header">
+          <h2>
+            You earned:
+          </h2>
+        </div>
+        <div class="result-wrapper dollar-sign">
+          <p class="result-message"></p>
+        </div>
+      </section>
+    </main>  
+
+    <!--JavaScript-->
+    <script src="js/main.js"></script>
+  </div>
+  </body>
+</html>

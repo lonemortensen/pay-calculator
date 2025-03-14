@@ -1,0 +1,314 @@
+/* ==================================================
+Project description: Pay Calculator
+Author: Lone Mortensen
+Description: 
+Built with: 
+
+===== *** =====
+
+================================================== */
+
+/* -------------------- Global Styles -------------------- */
+
+/*
+Google fonts used: 
+Headings: "Bungee Inline", sans-serif
+Sub-headings: "Bungee Inline", sans-serif
+Paragraph text: "Noto Sans", sans-serif
+*/
+
+html {
+    font-size: 16px; 
+    background-color: #DDD4BE;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h2 {
+    font-family: "Bungee Inline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3, p {
+    margin: 0;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Layout - Structural Styles */
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    max-width: 37.5rem; /*600px*/
+    margin: 100px 20px 100px 20px;
+    box-shadow: rgb(0 0 0 / 25%) 0px 4px 14px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#input, #results {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    /* border-radius: 60px; */
+    /* border: 1px solid red; */
+}
+
+.input-header, .result-header {
+    width: 100%;
+    /* border: 1px solid green; */
+}
+
+/* -------------------- Base Header-Footer Styles -------------------- */
+  
+/* HEADER */
+
+header {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    /* border: 1px solid purple; */
+}
+
+.header-wrapper {
+    width: 100%;
+}
+
+.header-styling { 
+    margin: 0;
+    padding: 20px;
+    font-size: 3rem;
+    text-align: center;
+    color: #fff;
+    background-color: #000;
+}
+
+/* FOOTER */
+
+/* -------------------- Mobile Styles - Homepage -------------------- */
+
+/* INPUT - Mobile */
+
+#input {
+    padding: 30px 30px 30px 30px;
+    background-color: #438989;
+}
+
+.input-header h3 {
+    font-size: 1.875rem;
+}
+
+#error {
+    width: 100%; 
+    min-height: 1.875rem;
+    margin: 10px 0px 10px 0px; 
+}
+
+/* Error display and content handled by JavaScript: */
+
+.error-wrapper { /*Applied in JavaScript*/
+    width: 100%; 
+    background-color: #FEE6E6;
+    box-shadow: 0 0 0 1px #F70301 inset; /*Box shadow inset (vs. border) does not take up space outward.*/
+    /*border-radius: 15px; */
+};
+
+.hide-error {
+    position: absolute; /* Error container visually hidden, but screen reader accessible.*/
+    top: -9999px;
+    left: -9999px;
+    /*opacity: 0;
+    /* position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px; 
+    overflow: hidden;  */
+    /*clip-path: inset(50%);*/ /*Specifies which part of element to show. Inset() defines a rectangle.*/
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    width: 100%; 
+    min-height: 3rem; 
+    margin: 10px 0px 10px 0px; 
+}
+
+.error-icon::before {
+    content: '\f06a';
+    font-family: 'Font Awesome 6 Free';
+    font-style: normal;
+    font-weight: 900;
+    display: inline-block;
+    margin: 0px 10px 0px 10px;
+    color: #F70301;
+}
+
+.error-border-input-field {
+    box-shadow: 0 0 0 1px #F70301 inset;
+}
+
+#workhours-form {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    /* margin: 0px 0px 30px 0px; */
+    margin: 0px 0px 70px 0px;
+    /* border: 1px solid blue; */
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 10px;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.25rem;
+}
+
+/*START HERE: Outline-color property doesn't apply in Safari and Firefox:
+https://stackoverflow.com/questions/67667161/is-css-outline-color-property-is-not-working-in-firefox-e-g-inputfocus-ou
+*/
+
+input {
+    width: 100%;
+    min-height: 1.875rem; /*30px*/
+    margin-bottom: 20px;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.25rem;
+    text-align: center;
+    background-color: #fff;
+    border: none;
+    outline-color: #894343;
+}
+
+.calculate {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.calculate-button-styling {
+    box-shadow: 4px 4px 0 0 #fff, 4px 4px 0 1px #000; /*Two box shadows.*/
+    padding: 10px 25px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.calculate-button-styling:active {
+    box-shadow: 2px 2px 0 0 #fff, 2px 2px 0 1px #000; 
+    transform: translate(3px, 3px); /*Changes the position of box shadows.*/
+}
+
+/* RESULTS - Mobile */
+
+#results {
+    padding: 20px; 
+    background-color: #894343;
+}
+
+.result-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin: 0px 0px 30px 0px;
+    /* border: 1px solid black;  */
+}
+
+.dollar-sign::before {
+    content: "$";
+    margin: 0px 10px 0px 0px;
+    font-family: "Bungee Inline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.875rem;
+    color: #fff;
+}
+
+.result-message {
+    width: 100%;
+    min-height: 1.875rem; /*30px*/
+    /* margin-bottom: 20px; */
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.25rem;
+    text-align: center;
+    background-color: #fff;
+    border: none;
+}
+
+
+/* -------------------------- Tablet Styles ------------------------- */
+  
+@media only screen and (min-width: 768px) {
+
+    /* Global and Structural Styles - Tablet */
+
+    /* Layout - Special Styles - Tablet */
+
+    /* ------------- Tablet - Base Header-Footer Styles ------------- *
+    
+    /* HEADER - Tablet */
+    /* FOOTER - Tablet */
+  
+    /* ---------------- Tablet Styles - Homepage ---------------- */
+
+    /* INPUT - Tablet */
+
+    /* Error display and content handled by JavaScript: */
+
+    .error-message {
+        min-height: 1.875rem; 
+    }
+
+}
+
+
+/* -------------------------- Desktop Styles ------------------------- */
+  
+@media only screen and (min-width: 1200px) {
+
+    /* Global and Structural Styles - Desktop */
+
+    /* Layout - Special Styles - Desktop */
+
+    /* ------------- Desktop - Base Header-Footer Styles ------------- *
+    
+    /* HEADER - Tablet */
+    /* FOOTER - Tablet */
+  
+    /* ---------------- Desktop Styles - Homepage ---------------- */
+
+  
+
+}
