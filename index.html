@@ -2,7 +2,7 @@
 Project description: Pay Calculator
 Author: Lone Mortensen
 Description: 
-Built with: 
+Built with: HTML, CSS, JavaScript.
 
 ===== *** =====
 
@@ -28,55 +28,57 @@ Built with:
 </head>
   <body>
     <div class="content-wrapper">
-    <header>
-      <div class="header-wrapper">
-        <h1 class="header-styling">
-          Calculate your pay
-        </h1>
-      </div>
-    </header>
-
-    <main>
-      <!--INPUT-->
-      <section id="input">
-        <div class="input-header">
-          <h3>
-            To calculate your pay, enter the number of hours you worked.
-          </h3>
+      <header>
+        <div class="header-wrapper">
+          <h1 class="header-styling">
+            Calculate your pay
+          </h1>
         </div>
-        <!--Error message-->
-        <div id="error" >
-          <p class="error-message hide-error"></p>
-      </div>
-        <!--Form-->
-        <form id="workhours-form">
-          <div class="input-wrapper"> 
-            <label for="number-input">Enter a number:</label>
-            <!--Type attribute set to 'text' (vs 'number') to allow for custom JS input validation:-->
-            <input type="text" id="number-input" name="number-input" value=""> 
+      </header>
+
+      <main>
+        <!--INPUT-->
+        <section id="input">
+          <div class="input-header">
+            <h3>
+              To calculate your pay, enter the number of hours you worked.
+            </h3>
           </div>
-          <div class="calculate">
-            <!--Type attribute set to 'button' (vs 'submit') to allow for custom JS behavior:-->
-            <button type="button" class="calculate-button calculate-button-styling">Calculate</button> 
-          </div> 
-        </form>
-      </section>
+          <!--Error message-->
+          <div id="error">
+            <div class="error-wrapper hide-error">
+              <p class="error-message"></p>
+            </div>
+          </div>
+          <!--Input form-->
+          <form id="workhours-form">
+            <div class="input-wrapper"> 
+              <label for="number-input">Enter a number:</label>
+              <!--Type attribute set to 'text' (vs 'number') to allow for custom JS input validation:-->
+              <input type="text" id="number-input" name="number-input" value=""> 
+            </div>
+            <div class="calculate">
+              <!--Type attribute set to 'button' (vs 'submit') to allow for custom JS behavior:-->
+              <button type="button" class="calculate-button calculate-button-styling">Calculate</button> 
+            </div> 
+          </form>
+        </section>
 
-      <!--RESULTS-->
-      <section id="results">
-        <div class="result-header">
-          <h2>
-            You earned:
-          </h2>
-        </div>
-        <div class="result-wrapper dollar-sign">
-          <p class="result-message"></p>
-        </div>
-      </section>
-    </main>  
+        <!--RESULTS-->
+        <section id="results">
+          <div class="result-header">
+            <h2>
+              You earned:
+            </h2>
+          </div>
+          <div class="result-wrapper dollar-sign">
+            <p class="result-message"></p>
+          </div>
+        </section>
+      </main>  
 
-    <!--JavaScript-->
-    <script src="js/main.js"></script>
-  </div>
+      <!--JavaScript-->
+      <script src="js/main.js"></script>
+    </div>
   </body>
 </html>

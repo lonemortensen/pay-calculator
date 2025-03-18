@@ -2,7 +2,7 @@
 Project description: Pay Calculator
 Author: Lone Mortensen
 Description: 
-Built with: 
+Built with: HTML, CSS, JavaScript.
 
 ===== *** =====
 
@@ -12,7 +12,7 @@ Built with:
 // Can all of these global var be moved inside the function for encapsulation? calculateButton likely an issue...
 // Consider encapsulation with IIFE instead...
 const form = document.getElementById("workhours-form");
-const errorDisplay = document.getElementById("error");
+const errorDisplay = document.querySelector(".error-wrapper");
 const errorMessage = document.querySelector(".error-message");
 const numberInputField = document.getElementById("number-input"); 
 const calculateButton = document.querySelector(".calculate-button");
@@ -32,21 +32,23 @@ const calculateTotalPay = () => {
 
   if (!hours) {
     errorDisplay.classList.remove("hide-error");
-    errorDisplay.classList.add("error-wrapper");
+    errorDisplay.classList.add("error-wrapper-styling");
     errorMessage.classList.add("error-icon");
-    numberInputField.classList.add("error-border-input-field");
     errorMessage.innerText = "Please enter a number";
+    numberInputField.classList.add("error-border-input-field");
   }
   else if (!verifyInput) {
     errorDisplay.classList.remove("hide-error");
-    errorDisplay.classList.add("error-wrapper");
+    errorDisplay.classList.add("error-wrapper-styling");
     errorMessage.classList.add("error-icon");
-    numberInputField.classList.add("error-border-input-field");
     errorMessage.innerText = "Please enter a number greater than or equal to zero";
+    numberInputField.classList.add("error-border-input-field");
+    
   }
   else if (hours <= 40) {
     const regularPay = hours * regularHourlyRate;
     console.log(regularPay); // works
+    resultMessage.scrollIntoView();
     resultMessage.innerText = `${regularPay}`;
   }
   else {
@@ -56,7 +58,9 @@ const calculateTotalPay = () => {
     console.log(overtimePay); // works
     const totalPay = (40 * regularHourlyRate) + overtimePay;
     console.log(totalPay); // works
+    resultMessage.scrollIntoView();
     resultMessage.innerText = `${totalPay}`;
+    
   }
 };
 
