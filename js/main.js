@@ -64,7 +64,6 @@ const calculateTotalPay = () => {
     errorMessage.classList.add("error-icon");
     errorMessage.innerText = "Please enter a number greater than or equal to zero";
     numberInputField.classList.add("error-border-input-field");
-    
   }
   else if (hours <= 40) {
     const regularPay = hours * regularHourlyRate;
@@ -83,6 +82,18 @@ const calculateTotalPay = () => {
     resultMessage.innerText = `${totalPay}`;
   }
 };
+
+/** 
+ * Detects when user mouse clicks or touches the calculate button.
+ * Applies button animation styling to handle both mouse clicks and touch interaction.    
+*/
+calculateButton.addEventListener ("pointerdown", () => {
+  calculateButton.classList.add("active");
+});
+
+calculateButton.addEventListener ("pointerup", () => {
+  calculateButton.classList.remove("active");
+});
 
 /** 
  * Detects when user clicks the calculate button.

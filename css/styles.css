@@ -138,7 +138,7 @@ header {
     align-items: center; 
     width: 100%; 
     background-color: #FEE6E6; 
-    box-shadow: 0 0 0 1px #F70301 inset; /*Box shadow inset (vs. border) does not take up space outward.*/
+    box-shadow: 0 0 0 1.25px #F70301 inset; /*Box shadow inset (vs. border) does not take up space outward.*/
 }
 
 .error-message {
@@ -159,7 +159,7 @@ header {
 }
 
 .error-border-input-field {
-    box-shadow: 0 0 0 1px #F70301 inset;
+    box-shadow: 0 0 0 1.25px #F70301 inset;
 }
 
 #workhours-form {
@@ -188,6 +188,9 @@ label {
 
 /*START HERE: Outline-color property doesn't apply in Safari and Firefox:
 https://stackoverflow.com/questions/67667161/is-css-outline-color-property-is-not-working-in-firefox-e-g-inputfocus-ou
+
+Using the outline shorthand property works on all browsers and removes the default blue outline. 
+BUT-- when the red error border is applied, it shows both the red and the focus color. FIX???
 */
 
 input {
@@ -203,7 +206,11 @@ input {
     text-align: center;
     background-color: #fff;
     border: none;
-    outline-color: #894343;
+    /* outline-style: solid;
+    outline-color: #894343; */
+}
+input:focus {
+    outline: 2px solid #894343;
 }
 
 .calculate {
@@ -222,7 +229,9 @@ input {
     cursor: pointer;
 }
 
-.calculate-button-styling:active {
+/*Using :active and .active pseudo classes to handle both mouse clicks and touch interaction:*/
+.calculate-button-styling:active, 
+.calculate-button-styling.active {
     box-shadow: 2px 2px 0 0 #fff, 2px 2px 0 1px #000; 
     transform: translate(3px, 3px); /*Changes the position of box shadows.*/
 }
