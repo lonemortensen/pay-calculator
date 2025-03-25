@@ -209,8 +209,34 @@ input {
     /* outline-style: solid;
     outline-color: #894343; */
 }
-input:focus {
+
+/* input:focus {
     outline: 2px solid #894343;
+} */
+
+/* #number-input:focus {
+    outline: 2px solid green;
+} */
+
+
+/* input:focus {
+    outline: 2px solid green;
+} */
+
+/* .border-input-field:focus {
+    outline: 2px solid green;
+} */
+
+/* input:focus {
+    outline: none;
+} */
+
+.remove-default-focus {
+    outline: none;
+}
+
+.focus {
+    outline: 5px solid green;
 }
 
 .calculate {
