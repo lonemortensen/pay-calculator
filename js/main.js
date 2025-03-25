@@ -185,8 +185,8 @@ calculateButton.addEventListener ("pointerup", () => {
 /** 
  * Detects when user clicks the calculate button.
  * Calls handler to process user input and calculate pay.
- * Clears message and results fields and removes error styling. 
- * Hides error display field from view.
+ * Clears message and results fields.  
+ * Removes error styling and hides error display field from view.
  * Clears input field.  
 */
 calculateButton.addEventListener("click", () => {
