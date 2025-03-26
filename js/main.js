@@ -30,6 +30,8 @@ const errorMessage = document.querySelector(".error-message");
 const numberInputField = document.getElementById("number-input");
 const calculateButton = document.querySelector(".calculate-button");
 const resultMessage = document.querySelector(".result-message");
+const regularHourlyRate = 50; 
+const overtimeHourlyRate = 70; 
 
 /**
  * Adds outline styling around input field to indicate focus.
@@ -90,16 +92,13 @@ const verifyUserInput = (input) => {
 /** 
  * Calculates the pay based on the number of hours entered by the user.
  * Calls function to verify user input.
- * Handles display of error messages and calculated pay result.  
+ * Displays error message in case of missing or invalid input.
+ * Calculates and displays pay result if input is valid.
 */
 const calculateTotalPay = () => {
-  const regularHourlyRate = 50; 
-  const overtimeHourlyRate = 70; 
   const hours = numberInputField.value.trim(); // Gets input entered by user. 
   console.log(hours); // works
-  
-  // Displays error message in case of missing or invalid input.
-  // Calculates and displays pay result if input is valid.
+ 
   if (!hours) {
     addErrorStyling();
     errorMessage.innerText = "Please enter a number";
