@@ -32,24 +32,9 @@ const calculateButton = document.querySelector(".calculate-button");
 const resultMessage = document.querySelector(".result-message");
 
 /**
- * Adds outline styling around input field.
+ * Adds outline styling around input field to indicate focus.
  * Removes outline styling around input field if error styling is applied: 
 */
-
-// const checkFocus = () => {
-//   numberInputField.addEventListener("focus", () => {
-//     console.log("Check input field"); // Works
-//     const hasErrorBorder = numberInputField.classList.contains("error-border-input-field"); // Returns true or false.
-//     if (!hasErrorBorder) {
-//       numberInputField.classList.add("remove-default-focus");
-//       numberInputField.classList.add("focus");
-//     } else {
-//       numberInputField.classList.remove("focus");
-//     }
-//   });
-// };
-// checkFocus();
-
 const addFocusStyling = () => {
   const hasErrorBorder = numberInputField.classList.contains("error-border-input-field"); // Returns true or false.
   if (!hasErrorBorder) {
@@ -61,30 +46,26 @@ const addFocusStyling = () => {
 };
 
 /**
- * Eventlisteners call handler on both focus and click events.
- * Click event serves as fallback if mobile browser fails to trigger focus event. 
+ * Removes outline styling around input field: 
 */
-// const checkFocus = () => {
-//   console.log("Check input field"); // Works
-//   numberInputField.addEventListener("focus", addFocusStyling);
-//   numberInputField.addEventListener("click", addFocusStyling);
-// };
-//checkFocus();
+const removeFocusStyling = () => {
+  console.log("REMOVEs focus on input field"); // Works
+  numberInputField.classList.remove("focus");
+};
 
 /**
- * Applies styling for error messages:
+ * Adds styling for error messages.
 */ 
 const addErrorStyling = () => {
   errorDisplay.classList.remove("hide-error");
   errorDisplay.classList.add("error-wrapper-styling");
   errorMessage.classList.add("error-icon");
   numberInputField.classList.add("error-border-input-field");
-  //checkFocus();
   addFocusStyling();
 };
 
 /**
- * Removes styling for error messages:
+ * Removes styling for error messages.
 */
 const removeErrorStyling = () => {
   errorDisplay.classList.remove("error-wrapper-styling");
@@ -93,53 +74,36 @@ const removeErrorStyling = () => {
   numberInputField.classList.remove("error-border-input-field");
 };
 
-
 /**
- * DO I NEED THIS????
- * Removes outline styling around input field: NOTE: Why can't I use checkFocus????
+ * Verifies user input.
+ * Regular expression search pattern allows numbers only (decimals included; no negative numbers). 
+ * The test() method checks input against the search pattern.
+ * @param input - The value entered by user in the input field. 
+ * @return - The test() method returns true or false.
 */
-const removeFocus = () => {
-  console.log("REMOVEs focus on input field"); // Works
-  numberInputField.classList.remove("focus");
+const verifyUserInput = (input) => {
+  const inputPattern = /^\d+(\.\d+)?$/; 
+  const verifiedInput = inputPattern.test(input); 
+  return verifiedInput;
 };
 
 /** 
  * Calculates the pay based on the number of hours entered by the user.
- * Gets and verifies user input.
- * Handles user interface display of error messages and calculated pay result.  
+ * Calls function to verify user input.
+ * Handles display of error messages and calculated pay result.  
 */
 const calculateTotalPay = () => {
   const regularHourlyRate = 50; 
   const overtimeHourlyRate = 70; 
   const hours = numberInputField.value.trim(); // Gets input entered by user. 
   console.log(hours); // works
-
-  // Verifies user input.
-  // Regular expression search pattern allows numbers only (decimals included, but no negative numbers). 
-  // The test() method checks input against the search pattern.
-  // @param input - The value from the input field. 
-  // @return - The test() method returns true or false.
-
-  // const inputPattern = /^\d+(\.\d+)?$/; 
-  // const verifyInput = inputPattern.test(hours); 
-  // console.log(verifyInput); // works
-
-  const verifyUserInput = (input) => {
-    const inputPattern = /^\d+(\.\d+)?$/; 
-    const verifiedInput = inputPattern.test(input); 
-    return verifiedInput;
-  };
   
-  // Displays error message in case of no or invalid input.
+  // Displays error message in case of missing or invalid input.
   // Calculates and displays pay result if input is valid.
   if (!hours) {
     addErrorStyling();
     errorMessage.innerText = "Please enter a number";
   }
-  // else if (!verifyInput) {
-  //   addErrorStyling();
-  //   errorMessage.innerText = "Please enter a number greater than or equal to zero";
-  // }
   else if (!verifyUserInput(hours)) { // Calls function to verify user input.
     addErrorStyling();
     errorMessage.innerText = "Please enter a number greater than or equal to zero";
@@ -163,16 +127,28 @@ const calculateTotalPay = () => {
 };
 
 /**
- * Detect interaction with input field.
- * Eventlisteners call handler on both focus and click events.
+ * Detect interaction with and inside input field.
+ * Call handler on both focus and click events.
  * Click event serves as fallback if mobile browser fails to trigger focus event. 
 */
 numberInputField.addEventListener("focus", addFocusStyling);
 numberInputField.addEventListener("click", addFocusStyling);
 
+/**
+ * Detect interaction outside the input field.
+ * Call handler on both focus and click events.
+ * Click event serves as fallback if mobile browser fails to trigger blur event. 
+*/
+numberInputField.addEventListener("blur", removeFocusStyling);
+numberInputField.addEventListener("click", (event) => {
+  if (event.target !== numberInputField) {
+    removeFocusStyling();
+  }
+});
+
 /** 
  * Detects when user clicks or touches the calculate button.
- * Applies button animation styling to handle both mouse clicks and touch interaction.    
+ * Adds button animation styling to handle both mouse clicks and touch interaction.    
 */
 calculateButton.addEventListener ("pointerdown", () => {
   calculateButton.classList.add("active");
@@ -195,7 +171,6 @@ calculateButton.addEventListener("click", () => {
   removeErrorStyling();  
   calculateTotalPay();
   form.reset(); // Clears input field.
-  //removeFocus();
 });
 
 

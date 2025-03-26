@@ -186,13 +186,6 @@ label {
     font-size: 1.25rem;
 }
 
-/*START HERE: Outline-color property doesn't apply in Safari and Firefox:
-https://stackoverflow.com/questions/67667161/is-css-outline-color-property-is-not-working-in-firefox-e-g-inputfocus-ou
-
-Using the outline shorthand property works on all browsers and removes the default blue outline. 
-BUT-- when the red error border is applied, it shows both the red and the focus color. FIX???
-*/
-
 input {
     width: 100%;
     min-height: 1.875rem; /*30px*/
@@ -206,37 +199,15 @@ input {
     text-align: center;
     background-color: #fff;
     border: none;
-    /* outline-style: solid;
-    outline-color: #894343; */
 }
-
-/* input:focus {
-    outline: 2px solid #894343;
-} */
-
-/* #number-input:focus {
-    outline: 2px solid green;
-} */
-
-
-/* input:focus {
-    outline: 2px solid green;
-} */
-
-/* .border-input-field:focus {
-    outline: 2px solid green;
-} */
-
-/* input:focus {
-    outline: none;
-} */
 
 .remove-default-focus {
     outline: none;
 }
 
 .focus {
-    outline: 5px solid green;
+    /* outline: 5px solid green; */
+    outline: 2px solid #894343;
 }
 
 .calculate {
