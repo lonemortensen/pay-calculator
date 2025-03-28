@@ -36,11 +36,11 @@ Main features of the Pay Calculator project:
 
 - An if/else statement controls the updating of the user interface based on the user’s input: 
  
-If the input is missing or invalid, the script displays an explanatory error message. The wording of the message will depend on the type of error. 
+  If the input is missing or invalid, the script displays an explanatory error message. The wording of the message will depend on the type of error. 
 
-As part of the error handling, the script applies styling to the input field to draw the user’s attention to it.  
+  As part of the error handling, the script applies styling to the input field to draw the user’s attention to it.  
 
-If the input is valid, the scripts takes the entered input and performs a simple calculation of the pay and displays the result on the user interface using template literals.
+  If the input is valid, the scripts takes the entered input and performs a simple calculation of the pay and displays the result on the user interface using template literals.
 
 - The app automatically scrolls the result field of the user interface into view (if needed) when the pay result is displayed. 
 
