@@ -5,16 +5,16 @@ Description: The Pay Calculator is a simple web app that
 takes, verifies, and processes user input and publishes 
 a response to the user interface. The user inputs the 
 number of hours they worked and - using fixed and 
-entirely fictitious hourly and overtime rates - the app 
+fictitious hourly and overtime rates - the app 
 calculates and returns the user's pay. 
 Design: The project uses the input html element to
-capture the input entered by the user on the front end.
-The type attributes of the input and button html elements 
-have been modified to allow for JavaScript handling of 
-the input. In the script, a regular expression verifies 
-the input and if statements control the updating of the 
-user interface with two types of error messages or the 
-calculated pay, depending on the input.    
+capture the input entered by the user. The type attributes 
+of the input and button html elements have been set to
+allow for JavaScript handling and client-side verification 
+of the input. A regular expression helps verify the input, and 
+if statements control the updating of the user interface with 
+two types of error messages or the calculated pay,
+depending on the input.    
 Built with: HTML, CSS, JavaScript.
 
 ===== *** =====
@@ -35,7 +35,7 @@ const overtimeHourlyRate = 70;
 
 /**
  * Adds outline styling around input field to indicate focus.
- * Removes outline styling around input field if error styling is applied: 
+ * Removes outline styling around input field if error styling is applied. 
 */
 const addFocusStyling = () => {
   const hasErrorBorder = numberInputField.classList.contains("error-border-input-field"); // Returns true or false.
@@ -48,7 +48,7 @@ const addFocusStyling = () => {
 };
 
 /**
- * Removes outline styling around input field: 
+ * Removes outline styling around input field. 
 */
 const removeFocusStyling = () => {
   console.log("REMOVEs focus on input field"); // Works
@@ -103,7 +103,7 @@ const calculateTotalPay = () => {
     addErrorStyling();
     errorMessage.innerText = "Please enter a number";
   }
-  else if (!verifyUserInput(hours)) { // Calls function to verify user input.
+  else if (!verifyUserInput(hours)) { // Calls function to verify user input. 
     addErrorStyling();
     errorMessage.innerText = "Please enter a number greater than or equal to zero";
   }
