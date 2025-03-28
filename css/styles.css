@@ -297,8 +297,6 @@ input {
         font-size: 2rem;
     }
 
-    /* Error display and content handled by JavaScript: */
-
     .error-message {
         font-size: 1.1rem;
     }
