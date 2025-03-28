@@ -48,7 +48,7 @@ h3, p {
 .content-wrapper {
     display: flex;
     flex-direction: column;
-    max-width: 37.5rem; /*600px*/
+    max-width: 37.5rem; /* 600px */
     margin: 80px 20px 80px 20px;
     box-shadow: rgb(0 0 0 / 25%) 0px 4px 14px;
 }
@@ -107,29 +107,29 @@ header {
     font-size: 1.875rem;
 }
 
-/* Error display and content handled by JavaScript: */
-
 #error {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%; 
-    min-height: 4rem; /*Min-height prevents page jump when error message displays.*/
+    min-height: 4rem; /* Min-height prevents page jump when error message displays */
     margin: 10px 0px 10px 0px; 
 }
 
 .hide-error {
-    position: absolute; /*Error container visually hidden, but screen reader accessible.*/
+    /* Styles applied by JavaScript to hide/show error container */
+    position: absolute; /* Error container visually hidden, but screen reader accessible */
     top: -9999px;
     left: -9999px; 
 }
 
 .error-wrapper-styling {
+    /* Styles applied by JavaScript to highlight error message */
     display: flex;
     align-items: center; 
     width: 100%; 
     background-color: #FEE6E6; 
-    box-shadow: 0 0 0 1.25px #F70301 inset; /*Box shadow inset (vs. border) does not take up space outward.*/
+    box-shadow: 0 0 0 1.25px #F70301 inset; /* Box shadow inset (vs. border) does not take up space outward */
 }
 
 .error-message {
@@ -140,6 +140,7 @@ header {
 }
 
 .error-icon::before {
+    /* Styles applied by JavaScript to highlight error message */
     content: '\f06a';
     font-family: 'Font Awesome 6 Free';
     font-style: normal;
@@ -150,6 +151,7 @@ header {
 }
 
 .error-border-input-field {
+    /* Styles applied by JavaScript to highlight error */
     box-shadow: 0 0 0 1.25px #F70301 inset;
 }
 
@@ -178,7 +180,7 @@ label {
 
 input {
     width: 100%;
-    min-height: 1.875rem; /*30px*/
+    min-height: 1.875rem; /* 30px */
     margin-bottom: 20px;
     padding: 5px 0px 5px 0px;
     font-family: "Noto Sans", sans-serif;
@@ -196,6 +198,7 @@ input {
 }
 
 .focus {
+    /* Styles applied by JavaScript on input field to indicate in/out of focus */
     outline: 2px solid #894343;
 }
 
@@ -206,7 +209,7 @@ input {
 }
 
 .calculate-button-styling {
-    box-shadow: 4px 4px 0 0 #fff, 4px 4px 0 1px #000; /*Two box shadows.*/
+    box-shadow: 4px 4px 0 0 #fff, 4px 4px 0 1px #000; /* Two box shadows */
     padding: 10px 25px;
     border: none;
     background-color: #000;
@@ -215,11 +218,13 @@ input {
     cursor: pointer;
 }
 
-/*Using :active and .active pseudo classes to handle both mouse clicks and touch interaction:*/
+
 .calculate-button-styling:active, 
 .calculate-button-styling.active {
+    /* Styles applied by JavaScript to animate button */
+    /* Uses :active and .active pseudo classes to handle mouse clicks and touch interaction */
     box-shadow: 2px 2px 0 0 #fff, 2px 2px 0 1px #000; 
-    transform: translate(3px, 3px); /*Changes the position of box shadows.*/
+    transform: translate(3px, 3px); /* Changes the position of box shadows */
 }
 
 /* RESULTS - Mobile */
@@ -253,7 +258,7 @@ input {
 
 .result-message {
     width: 100%;
-    min-height: 1.875rem; /*30px*/
+    min-height: 1.875rem; /* 30px */
     padding: 5px 0px 5px 0px;
     font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
