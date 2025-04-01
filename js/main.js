@@ -11,9 +11,9 @@ Design: The project uses the input html element to
 capture the input entered by the user. The type attributes 
 of the input and button html elements have been set to
 allow for JavaScript handling and client-side verification 
-of the input. A regular expression helps verify the input, and 
-if statements control the updating of the user interface with 
-two types of error messages or the calculated pay,
+of the input. A regular expression and the test() method 
+verify the input, and an if/else statement controls the updating 
+of the user interface with error messages or the calculated pay,
 depending on the input.    
 Built with: HTML, CSS, JavaScript.
 
@@ -51,7 +51,6 @@ const addFocusStyling = () => {
  * Removes outline styling around input field. 
 */
 const removeFocusStyling = () => {
-  console.log("REMOVEs focus on input field"); // Works
   numberInputField.classList.remove("focus");
 };
 
@@ -97,7 +96,6 @@ const verifyUserInput = (input) => {
 */
 const calculateTotalPay = () => {
   const hours = numberInputField.value.trim(); // Gets input entered by user. 
-  console.log(hours); // works
  
   if (!hours) {
     addErrorStyling();
@@ -109,17 +107,13 @@ const calculateTotalPay = () => {
   }
   else if (hours <= 40) {
     const regularPay = hours * regularHourlyRate;
-    console.log(regularPay); // works
     resultMessage.scrollIntoView();
     resultMessage.innerText = `${regularPay}`;
   }
   else {
     const overtimeHours = hours - 40;
-    console.log(overtimeHours); // works
     const overtimePay = overtimeHours * overtimeHourlyRate;
-    console.log(overtimePay); // works
     const totalPay = (40 * regularHourlyRate) + overtimePay;
-    console.log(totalPay); // works
     resultMessage.scrollIntoView();
     resultMessage.innerText = `${totalPay}`;
   }
