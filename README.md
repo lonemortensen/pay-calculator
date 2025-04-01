@@ -42,7 +42,7 @@ Main features of the Pay Calculator project:
 
   If the input is valid, the scripts takes the entered input and performs a simple calculation of the pay and displays the result on the user interface using template literals.
 
-- The app automatically scrolls the result field of the user interface into view (if needed) when the pay result is displayed. 
+- The app automatically scrolls the result field of the user interface into view when the pay result is displayed. 
 
 ## Built With 
 - JavaScript
@@ -51,4 +51,4 @@ Main features of the Pay Calculator project:
 - Flexbox
 
 ## Launch
-[See the live version of the Pay Calculator here.]()
+[See the live version of the Pay Calculator here.](https://codepen.io/lonemortensen/full/yyLaYQo)
