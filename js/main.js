@@ -1,19 +1,20 @@
 /* ==================================================
 Project description: Pay Calculator
 Author: Lone Mortensen
-Description: The Pay Calculator is a simple web app that 
-takes, verifies, and processes user input and publishes 
-a response to the user interface. The user inputs the 
-number of hours they worked and - using fixed and 
-fictitious hourly and overtime rates - the app 
-calculates and returns the user's pay. 
+Description: A simple web app that takes, verifies, and 
+processes user input and publishes a response to the 
+user interface. The user inputs the number of hours 
+they worked and - using fixed and fictitious hourly 
+and overtime rates - the app calculates and 
+returns the user's pay. 
 Design: The project uses the input html element to
-capture the input entered by the user. The type attributes 
-of the input and button html elements have been set to
-allow for JavaScript handling and client-side verification 
-of the input. A regular expression and the test() method 
-verify the input, and an if/else statement controls the updating 
-of the user interface with error messages or the calculated pay,
+capture input entered by the user. The type attributes 
+of the input and button html elements are set to
+allow for JavaScript handling and client-side 
+verification of the input. A regular expression and 
+the test() method verify the input, and an if/else 
+statement controls the updating of the user interface 
+with error messages or the calculated pay,
 depending on the input.    
 Built with: HTML, CSS, JavaScript.
 
@@ -34,8 +35,8 @@ const regularHourlyRate = 50;
 const overtimeHourlyRate = 70; 
 
 /**
- * Adds outline styling around input field to indicate focus.
- * Removes outline styling around input field if error styling is applied. 
+ * Adds outline styling on input field to indicate focus.
+ * Removes outline styling on input field if error styling is applied. 
 */
 const addFocusStyling = () => {
   const hasErrorBorder = numberInputField.classList.contains("error-border-input-field"); // Returns true or false.
@@ -48,7 +49,7 @@ const addFocusStyling = () => {
 };
 
 /**
- * Removes outline styling around input field. 
+ * Removes outline styling on input field. 
 */
 const removeFocusStyling = () => {
   numberInputField.classList.remove("focus");
